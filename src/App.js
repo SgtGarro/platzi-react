@@ -1,36 +1,51 @@
 import "./App.css";
-import logo from "./platzi.webp";
 
-const App = function () {
+import CreateTodoButton from "./CreateTodoButton";
+import TodoCounter from "./TodoCounter";
+import TodoItem from "./TodoItem";
+import TodoList from "./TodoList";
+import TodoSearch from "./TodoSearch";
+
+const defaultTodos = [
+  {
+    text: "Cortar cebolla",
+    completed: false,
+  },
+  {
+    text: "Limpiar el cuarto",
+    completed: false,
+  },
+  {
+    text: "Lavarse el cabello",
+    completed: false,
+  },
+  {
+    text: "Hacer la tarea",
+    completed: false,
+  },
+  {
+    text: "Cocinar",
+    completed: false,
+  },
+];
+
+function App() {
   return (
-    <div className="App">
-      <TodoItem />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Aprendamos React
-        </a>
-      </header>
-    </div>
-  );
-};
+    <>
+      <TodoCounter completed={13} total={20} />
+      <TodoSearch />
+      <TodoList>
+        {defaultTodos.map((todo) => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+          />
+        ))}
+      </TodoList>
 
-const TodoItem = function () {
-  return (
-    <li>
-      <span>&larr</span>
-      <p>Llorar con la Llorona</p>
-      <span>X</span>
-    </li>
+      <CreateTodoButton />
+    </>
   );
-};
-
+}
 export default App;
