@@ -9,7 +9,7 @@ import TodoSearch from "./TodoSearch";
 const defaultTodos = [
   {
     text: "Cortar cebolla",
-    completed: false,
+    completed: true,
   },
   {
     text: "Limpiar el cuarto",
@@ -21,7 +21,7 @@ const defaultTodos = [
   },
   {
     text: "Hacer la tarea",
-    completed: false,
+    completed: true,
   },
   {
     text: "Cocinar",
@@ -31,7 +31,7 @@ const defaultTodos = [
 
 function App() {
   return (
-    <>
+    <div className="container">
       <TodoCounter completed={13} total={20} />
       <TodoSearch />
       <TodoList>
@@ -45,7 +45,7 @@ function App() {
       </TodoList>
 
       <CreateTodoButton />
-    </>
+    </div>
   );
 }
 export default App;

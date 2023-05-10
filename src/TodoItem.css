@@ -1,0 +1,51 @@
+.todo-item {
+  position: relative;
+
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 30px 5px rgba(33, 37, 41, 0.15);
+  padding: 2.4rem;
+
+  transition: all 0.3s ease-out;
+}
+
+.todo-item:hover {
+  transform: scale(1.025);
+}
+
+.todo-item-text {
+  font-size: 1.4rem;
+}
+
+.todo-item-text--completed {
+  text-decoration: line-through;
+}
+
+.todo-item-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  transform: translate(30%, -30%);
+}
+
+.icon--check {
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+
+.icon--check:hover {
+  stroke: #2f9e44;
+  transform: scale(1.25);
+}
+.icon--completed {
+  stroke: #2f9e44;
+}
+
+.icon--close {
+  stroke: #e03131;
+  cursor: pointer;
+}
