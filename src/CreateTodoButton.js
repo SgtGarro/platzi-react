@@ -2,7 +2,14 @@ import "./CreateTodoButton.css";
 
 function CreateTodoButton() {
   return (
-    <button type="button" className="create-todo-button">
+    <button
+      type="button"
+      className="create-todo-button"
+      onClick={function (event) {
+        const btn = event.target.closest(".create-todo-button");
+        console.log(btn);
+      }}
+    >
       <svg
         className="icon icon--add"
         xmlns="http://www.w3.org/2000/svg"

@@ -3,7 +3,16 @@ import "./TodoSearch.css";
 function TodoSearch() {
   return (
     <div className="todo-search">
-      <input className="todo-input" placeholder="Cortar cebolla" type="text" />
+      <input
+        className="todo-input"
+        placeholder="Cortar cebolla"
+        type="text"
+        onChange={function (event) {
+          console.log(event);
+          console.log(event.target);
+          console.log(event.target.value);
+        }}
+      />
       <svg
         className="icon icon--search"
         xmlns="http://www.w3.org/2000/svg"
