@@ -6,35 +6,47 @@ import TodoItem from "./components/TodoItem/TodoItem";
 import TodoList from "./components/TodoList/TodoList";
 import TodoSearch from "./components/TodoSearch/TodoSearch";
 
-const defaultTodos = [
-  { id: 0, task: "Lavar los platos", completed: true },
-  { id: 1, task: "Asear el cuarto", completed: true },
-  { id: 2, task: "Lavar la ropa", completed: false },
-  { id: 3, task: "Limpiar el cuarto", completed: true },
-  { id: 4, task: "Pintar la casa", completed: false },
-];
+// const defaultTodos = [
+//   { id: 0, task: "Lavar los platos", completed: true },
+//   { id: 1, task: "Asear el cuarto", completed: true },
+//   { id: 2, task: "Lavar la ropa", completed: false },
+//   { id: 3, task: "Limpiar el cuarto", completed: true },
+//   { id: 4, task: "Pintar la casa", completed: false },
+// ];
+
+// localStorage.setItem("TODOS_V1", JSON.stringify(defaultTodos));
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const [todos, setTodos] = React.useState(() => {
+    const todosFromStorage = localStorage.getItem("TODOS_V1");
+    if (todosFromStorage) return JSON.parse(todosFromStorage);
+    localStorage.setItem("TODOS_V1", JSON.stringify([]));
+    return [];
+  });
   const [searchValue, setSearchValue] = React.useState("");
 
   // Derivated states
   const completedTodos = todos.filter((todo) => todo.completed).length;
   const totalTodos = todos.length;
 
+  const saveTodos = function (newTodos) {
+    localStorage.setItem("TODOS_V1", JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
+
   const toggleTodo = function (id) {
     const newTodos = [...todos];
     const todo = newTodos.find((todo) => todo.id === id);
     todo.completed = !todo.completed;
 
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
   const deleteTodo = function (id) {
     const newTodos = [...todos];
     const index = newTodos.findIndex((todo) => todo.id === id);
 
     newTodos.splice(index, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   // Searched tasks
