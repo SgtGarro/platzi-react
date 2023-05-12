@@ -1,15 +1,7 @@
-/* body {
+* {
+  padding: 0;
   margin: 0;
-   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; 
-} */
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  box-sizing: border-box;
 }
 
 html {
@@ -18,33 +10,47 @@ html {
 }
 
 body {
-  color: #343a40;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.icon {
-  width: 2.4rem;
-  height: 2.4rem;
+  color: #212529;
+  width: 100%;
+  margin-block: auto;
+  padding-block: 2.4rem;
 }
 
 .container {
   width: 100%;
-  padding: 0 2.4rem;
+  padding: 2.4rem;
   margin: 0 auto;
 }
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.icon--check,
+.icon--delete {
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
 
-svg {
-  stroke: #343a40;
+.icon--check:hover {
+  stroke: #37b24d;
+  transform: scale(1.2);
+}
+
+.icon--delete:hover {
+  transform: scale(1.2);
+}
+
+.icon--search {
+  stroke: #adb5bd;
+}
+
+.icon--green {
+  stroke: #37b24d;
 }
 
 @media (min-width: 36em) {
   .container {
-    max-width: 54rem;
     padding: 0;
+    max-width: 52rem;
   }
 }

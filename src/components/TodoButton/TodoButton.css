@@ -1,0 +1,21 @@
+.todo-add-button {
+  position: fixed;
+  bottom: 3.2rem;
+  right: 3.2rem;
+
+  padding: 2.4rem;
+  border: none;
+  border-radius: 50%;
+  background: #3b5bdb;
+  cursor: pointer;
+}
+
+.todo-add-button svg {
+  transform: scale(1.35);
+
+  transition: all 0.3s ease-out;
+}
+
+.todo-add-button:hover svg {
+  transform: scale(1.5);
+}

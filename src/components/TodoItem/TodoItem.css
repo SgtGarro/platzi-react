@@ -1,0 +1,36 @@
+.todo-list-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+
+  padding: 2.4rem;
+  background: #fff;
+  box-shadow: 0 4px 10px 4px rgba(33, 37, 41, 0.15);
+  border-radius: 8px;
+}
+
+.todo-check {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.todo-item-text {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: #495057;
+}
+.todo-item-text--completed {
+  text-decoration: line-through;
+}
+
+.todo-delete {
+  width: 2.4rem;
+  height: 2.4rem;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(35%, -35%);
+}
