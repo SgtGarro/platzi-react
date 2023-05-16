@@ -15,14 +15,28 @@ import TodoSearch from "./components/TodoSearch/TodoSearch";
 // ];
 
 // localStorage.setItem("TODOS_V1", JSON.stringify(defaultTodos));
+const useLocalStorage = function (itemName, initialValue) {
+  const todosFromStorage = localStorage.getItem(itemName);
+
+  let parsedItem;
+  if (!todosFromStorage) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  }
+  parsedItem = JSON.parse(todosFromStorage);
+
+  const [item, setItem] = React.useState(parsedItem);
+
+  const saveItem = function (newItem) {
+    localStorage.setItem("TODOS_V1", JSON.stringify(newItem));
+    setItem(newItem);
+  };
+
+  return [item, saveItem];
+};
 
 function App() {
-  const [todos, setTodos] = React.useState(() => {
-    const todosFromStorage = localStorage.getItem("TODOS_V1");
-    if (todosFromStorage) return JSON.parse(todosFromStorage);
-    localStorage.setItem("TODOS_V1", JSON.stringify([]));
-    return [];
-  });
+  const [todos, setTodos] = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
 
   // Derivated states
