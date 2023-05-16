@@ -1,5 +1,5 @@
-import CheckIcon from "../icons/CheckIcon";
-import DeleteIcon from "../icons/DeleteIcon";
+import CheckIcon from "../TodoIcon/CheckIcon";
+import DeleteIcon from "../TodoIcon/DeleteIcon";
 import "./TodoItem.css";
 
 function TodoItem({ task, completed, onToggle, onDelete }) {
