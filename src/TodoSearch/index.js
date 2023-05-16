@@ -1,4 +1,4 @@
-import SearchIcon from "../../icons/SearchIcon";
+import SearchIcon from "../icons/SearchIcon";
 import "./TodoSearch.css";
 
 function TodoSearch({ value, setValue }) {

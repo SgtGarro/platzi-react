@@ -1,10 +1,10 @@
 import React from "react";
 
-import TodoButton from "./components/TodoButton/TodoButton";
-import TodoCounter from "./components/TodoCounter/TodoCounter";
-import TodoItem from "./components/TodoItem/TodoItem";
-import TodoList from "./components/TodoList/TodoList";
-import TodoSearch from "./components/TodoSearch/TodoSearch";
+import TodoButton from "./TodoButton";
+import TodoCounter from "./TodoCounter";
+import TodoItem from "./TodoItem";
+import TodoList from "./TodoList";
+import TodoSearch from "./TodoSearch";
 
 // const defaultTodos = [
 //   { id: 0, task: "Lavar los platos", completed: true },
