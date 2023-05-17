@@ -10,7 +10,7 @@ function TodoProvider({ children }) {
     loading,
     error,
   } = useLocalStorage("TODOS_V1", []);
-  const [openModal, setOpenModal] = React.useState(true);
+  const [openModal, setOpenModal] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
 
   // Derivated states
@@ -22,18 +22,23 @@ function TodoProvider({ children }) {
     setTodos(newTodos);
   };
 
-  const toggleTodo = function (id) {
+  const toggleTodo = function (task) {
     const newTodos = [...todos];
-    const todo = newTodos.find((todo) => todo.id === id);
+    const todo = newTodos.find((todo) => todo.task === task);
     todo.completed = !todo.completed;
 
     saveTodos(newTodos);
   };
-  const deleteTodo = function (id) {
+  const deleteTodo = function (task) {
     const newTodos = [...todos];
-    const index = newTodos.findIndex((todo) => todo.id === id);
+    const index = newTodos.findIndex((todo) => todo.task === task);
 
     newTodos.splice(index, 1);
+    saveTodos(newTodos);
+  };
+  const addTodo = function (task) {
+    const newTodos = [...todos];
+    newTodos.push({ task, completed: false });
     saveTodos(newTodos);
   };
 
@@ -53,6 +58,7 @@ function TodoProvider({ children }) {
         searchedTodos,
         toggleTodo,
         deleteTodo,
+        addTodo,
         loading,
         error,
         openModal,

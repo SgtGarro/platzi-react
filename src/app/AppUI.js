@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "../components/Modal";
 import TodoButton from "../components/TodoButton";
 import TodoCounter from "../components/TodoCounter";
+import TodoForm from "../components/TodoForm";
 import TodoItem from "../components/TodoItem";
 import TodoList from "../components/TodoList";
 import TodoLoading from "../components/TodoLoading";
@@ -9,15 +10,8 @@ import TodoSearch from "../components/TodoSearch";
 import { TodoContext } from "../context/TodoContext";
 
 function AppUI() {
-  const {
-    loading,
-    error,
-    searchedTodos,
-    toggleTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
-  } = React.useContext(TodoContext);
+  const { loading, error, searchedTodos, toggleTodo, deleteTodo, openModal } =
+    React.useContext(TodoContext);
   return (
     <>
       <div className="container">
@@ -35,14 +29,18 @@ function AppUI() {
               key={todo.id}
               task={todo.task}
               completed={todo.completed}
-              onToggle={() => toggleTodo(todo.id)}
-              onDelete={() => deleteTodo(todo.id)}
+              onToggle={() => toggleTodo(todo.task)}
+              onDelete={() => deleteTodo(todo.task)}
             />
           ))}
         </TodoList>
       </div>
       <TodoButton />
-      {openModal && <Modal>La funcionalidad de agregar TODOs</Modal>}
+      {openModal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+      )}
     </>
   );
 }

@@ -8,6 +8,8 @@
   border-radius: 50%;
   background: #3b5bdb;
   cursor: pointer;
+
+  z-index: 1;
 }
 
 .todo-add-button svg {

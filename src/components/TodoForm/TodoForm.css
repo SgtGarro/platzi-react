@@ -1,0 +1,60 @@
+.todo-form {
+  background: #fff;
+  padding: 3.2rem;
+  border-radius: 8px;
+}
+
+.todo-form-label {
+  display: block;
+  margin-bottom: 2rem;
+  font-size: 2.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.todo-form-input {
+  display: block;
+  margin-bottom: 2.8rem;
+  font-size: 1.6rem;
+  font-family: "Inter", sans-serif;
+  padding: 0.8rem;
+  width: 36rem;
+  height: 16rem;
+}
+
+.todo-form-btns {
+  display: flex;
+  justify-content: end;
+  gap: 1.6rem;
+}
+
+.todo-form-btn {
+  font-family: "Inter", sans-serif;
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 100px;
+  background: none;
+
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.todo-form-btn:hover {
+  transform: scale(1.05);
+}
+
+.todo-form-btn--cancel {
+  background: #f1f3f5;
+}
+.todo-form-btn--cancel:hover {
+  background: #e03131;
+  color: #fff;
+}
+.todo-form-btn--add {
+  background: #5c7cfa;
+  color: #fff;
+}
+.todo-form-btn--add:hover {
+  background: #3b5bdb;
+}
