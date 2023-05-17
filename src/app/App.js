@@ -5,16 +5,17 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import AppUI from "./AppUI";
 
 function App() {
-  const [todos, setTodos] = useLocalStorage("TODOS_V1", []);
+  const {
+    item: todos,
+    saveItem: setTodos,
+    loading,
+    error,
+  } = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
 
   // Derivated states
   const completedTodos = todos.filter((todo) => todo.completed).length;
   const totalTodos = todos.length;
-
-  React.useEffect(() => {
-    console.log("Log 2");
-  }, [totalTodos]);
 
   const saveTodos = function (newTodos) {
     localStorage.setItem("TODOS_V1", JSON.stringify(newTodos));
@@ -51,6 +52,8 @@ function App() {
       setSearchValue={setSearchValue}
       toggleTodo={toggleTodo}
       totalTodos={totalTodos}
+      loading={loading}
+      error={error}
     ></AppUI>
   );
 }

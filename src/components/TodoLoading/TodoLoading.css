@@ -1,0 +1,92 @@
+.loading-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  padding: 2.4rem;
+  background: #fff;
+  box-shadow: 0 4px 10px 4px rgba(33, 37, 41, 0.15);
+  border-radius: 8px;
+}
+.loading-item-check {
+  width: 2.4rem;
+  height: 2.4rem;
+  background-image: linear-gradient(
+    90deg,
+    #f2f2f2 0%,
+    #e6e6e6 50%,
+    #f2f2f2 100%
+  );
+  border-radius: 50%;
+  transform: scale(1.4);
+  background-size: 400%;
+
+  animation: skeleton-animation 1s linear infinite;
+}
+.loading-item-text {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  background-image: linear-gradient(
+    90deg,
+    #f2f2f2 0%,
+    #e6e6e6 50%,
+    #f2f2f2 100%
+  );
+  border-radius: 100px;
+  width: 100%;
+  height: 2rem;
+  background-size: 400%;
+
+  animation: skeleton-animation 1s linear infinite;
+}
+.loading-item-close {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(35%, -35%) scale(1.4);
+  background-image: linear-gradient(
+    90deg,
+    #f2f2f2 0%,
+    #e6e6e6 50%,
+    #f2f2f2 100%
+  );
+  background-size: 400%;
+
+  animation: skeleton-animation 1s linear infinite;
+}
+
+@keyframes skeleton-animation {
+  from {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+/* .loading-spinner {
+  width: 40%;
+  margin: 0 auto;
+  animation: spin 1.5s infinite linear;
+}
+.loading-text {
+  font-size: 3.2rem;
+  font-weight: 600;
+  letter-spacing: 0.75px;
+  text-align: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
